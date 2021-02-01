@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SamplerooComponent } from './components/footer/sampleroo/sampleroo.component';
 import { SubscribeComponent } from './components/footer/subscribe/subscribe.component';
 import { FollowusComponent } from './components/footer/followus/followus.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FollowusComponent } from './components/footer/followus/followus.compone
     FooterComponent,
     SamplerooComponent,
     SubscribeComponent,
-    FollowusComponent
+    FollowusComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
