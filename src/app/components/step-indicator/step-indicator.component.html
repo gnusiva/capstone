@@ -1,0 +1,6 @@
+
+<div class="d-flex">
+  <div class="mx-2" *ngFor="let item of arr1; let i = index;" >
+    <div class="step-circle" [ngClass]="{'step-circle-active':(i+1) === currentStep}" ></div>
+  </div>
+</div>
