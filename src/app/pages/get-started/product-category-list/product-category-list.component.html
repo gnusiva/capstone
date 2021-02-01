@@ -1,0 +1,7 @@
+
+<div class="w-100 d-flex">
+  <app-product-category-card
+    *ngFor="let product of list" [product]="product"
+    (click)="onClick(product)" >
+  </app-product-category-card>
+</div>

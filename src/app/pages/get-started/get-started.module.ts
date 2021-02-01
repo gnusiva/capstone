@@ -13,6 +13,8 @@ import { Step8Component } from './step8/step8.component';
 import { Step9Component } from './step9/step9.component';
 import { StepIndicatorComponent } from 'src/app/components/step-indicator/step-indicator.component';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { ProductCategoryListComponent } from './product-category-list/product-category-list.component';
+import { ProductCategoryCardComponent } from './product-category-list/product-category-card/product-category-card.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     Step7Component,
     Step8Component,
     Step9Component,
+    ProductCategoryListComponent,
+    ProductCategoryCardComponent,
   ],
   imports: [
     CommonModule,

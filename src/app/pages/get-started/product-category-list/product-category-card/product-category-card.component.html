@@ -1,0 +1,11 @@
+<div class="m-2 cursor-pointer">
+  <div class="product-category-card"
+    [ngClass]="{'product-category-card-active':product.isSelected}">
+      <img class="w-100 h-100" src="{{product.imageUrl}}">
+  </div>
+  <div class="text-center product-name font-weight-bold"
+    [ngClass]="{'product-name-active':product.isSelected}">
+      {{product.categoryName}}
+  </div>
+
+</div>
