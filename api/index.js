@@ -5,8 +5,13 @@ const app = express()
 const port = 3000
 app.use(express.json());
 app.use(cors());
+
 app.get('/getProductCategory', (req, res) => {
   res.send(db.get('productCategories').value())
+});
+
+app.get('/getBrands', (req, res) => {
+  res.send(db.get('brands').value())
 });
 
 app.post('/createNewUser', (req, res) => {

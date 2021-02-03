@@ -13,4 +13,9 @@ export class ApiService {
   getProductCategory(): Observable<any> {
     return this.http.get('http://localhost:3000/getProductCategory');
   }
+
+  getBrands(): Observable<any> {
+    return this.http.get('http://localhost:3000/getBrands');
+  }
+
 }

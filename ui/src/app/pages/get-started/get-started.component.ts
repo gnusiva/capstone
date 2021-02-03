@@ -16,6 +16,9 @@ export class GetStartedComponent implements OnInit {
   pageSize = 6;
   currentSelectedProducts: ProductCategory[] = [];
   allSelectectedProducts: ProductCategory[] = [];
+  brands: any[] = [];
+  selectedBrands: any[] = [];
+
   constructor(public api: ApiService) { }
 
   ngOnInit(): void {
@@ -34,7 +37,9 @@ export class GetStartedComponent implements OnInit {
   }
 
   getAllBrands(): void {
-
+    this.api.getBrands().subscribe( (data: any[]) => {
+      this.brands = data;
+    });
   }
 
   gotoStep(step: number): void {
@@ -56,6 +61,10 @@ export class GetStartedComponent implements OnInit {
 
   setSelectedProducts(products: any): void {
     this.currentSelectedProducts = [...products];
+  }
+
+  setSelectedBrands(brands: any): void {
+    this.selectedBrands = [...brands];
   }
 
 }

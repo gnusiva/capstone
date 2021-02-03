@@ -1,6 +1,6 @@
 export interface ProductCategory {
   id: number;
-  categoryName: string;
+  name: string;
   img: string;
   isSelected: boolean;
 }
