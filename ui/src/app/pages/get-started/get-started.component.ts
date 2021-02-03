@@ -18,6 +18,14 @@ export class GetStartedComponent implements OnInit {
   allSelectectedProducts: ProductCategory[] = [];
   brands: any[] = [];
   selectedBrands: any[] = [];
+  ageArr = Array.from( Array(100).keys() );
+
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  age = 'Age';
+  aggreed = false;
 
   constructor(public api: ApiService) { }
 
@@ -43,7 +51,9 @@ export class GetStartedComponent implements OnInit {
   }
 
   gotoStep(step: number): void {
+    if(step == this.totalSteps+3 && !(this.email && this.password && this.age !== 'Age' && this.aggreed) ) { return; }
     this.currentStep = step;
+    this.currentStep = this.totalSteps + 2; // this needs to be deleted
     if ( step > this.totalSteps ) {
 
     } else {

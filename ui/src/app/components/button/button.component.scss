@@ -6,3 +6,8 @@
   font-size: 12px;
   border-radius: 3px;
 }
+
+.btn-disabled {
+  background: $grey;
+  cursor: not-allowed;
+}
