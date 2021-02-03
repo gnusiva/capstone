@@ -10,17 +10,42 @@ import { ProductCategory } from './interface/product-category';
 export class GetStartedComponent implements OnInit {
 
   currentStep = 0;
+  allCategories: ProductCategory[] = [];
   productCategories: ProductCategory[] = [];
+  totalSteps = 0;
+  pageSize = 6;
+  currentSelectedProducts: ProductCategory[] = [];
+  allSelectectedProducts: ProductCategory[] = [];
   constructor(public api: ApiService) { }
 
   ngOnInit(): void {
     this.api.getProductCategory().subscribe( (data: ProductCategory[]) => {
-      this.productCategories = data;
+      this.allCategories = data;
+      const categoryCount = this.allCategories.length;
+      this.totalSteps = Math.ceil(categoryCount/this.pageSize);
+      this.gotoStep(0);
     });
   }
 
-  setSelectedProducts(products: any): void {
+  gotoStep(step: number): void {
+    if ( step > this.totalSteps ) {
 
+    } else {
+      this.currentStep = step;
+      this.productCategories = [...this.paginate(this.allCategories, this.pageSize, this.currentStep )]
+      this.allSelectectedProducts.push(...this.currentSelectedProducts);
+      this.currentSelectedProducts = [];
+    }
+    console.log(this.allSelectectedProducts);
+  }
+
+  paginate(array: any[], page_size: number, page_number: number) {
+    // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
+    return array.slice((page_number - 1) * page_size, page_number * page_size);
+  }
+
+  setSelectedProducts(products: any): void {
+    this.currentSelectedProducts = [...products];
   }
 
 }
