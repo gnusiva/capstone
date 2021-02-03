@@ -1,32 +1,42 @@
-import { DataTypes, Sequelize } from 'sequelize';
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+ 
+const adapter = new FileSync('db.json')
+const db = low(adapter);
 
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: '../database.sqlite'
-});
+interface ProductCategory {
+  id: number;
+  categoryName: string;
+  imageUrl: string;
+  isSelected?: boolean;
+};
 
-const User = sequelize.define('User', {
-    // Model attributes are defined here
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    lastName: {
-      type: DataTypes.STRING
-      // allowNull defaults to true
-    },
-    address: {
-        type: DataTypes.STRING
-    },
-    
-  }, {
-    // Other model options go here
-  });
+interface User {
+  email: string;
+  password: string;
+  age: number;
+  firstname: string;
+  lastname: string;
+  address: string;
+  pinCode: string;
+  country: string;
+  selectedCategories: ProductCategory[];
+};
+
+interface DatabaseDefaults {
+  productCategories: ProductCategory[];
+  users: User[];
+}
+
+const dbDefault: DatabaseDefaults = { 
+  productCategories: [
+    { id: 1, categoryName: 'Baby', imageUrl: '' },
+    { id: 2, categoryName: 'Beauty', imageUrl: '' },
+    { id: 3, categoryName: 'Pets', imageUrl: '' },
+  ], 
+  users: []
+}
+
+db.defaults(dbDefault).write();
+
+export default db;
