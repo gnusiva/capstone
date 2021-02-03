@@ -247,10 +247,5 @@
       "isSelected": true
     }
   ],
-  "users": [
-    {
-      "firstname": "siva",
-      "lastname": "moorthy"
-    }
-  ]
+  "users": []
 }

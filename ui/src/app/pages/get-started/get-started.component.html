@@ -1,6 +1,14 @@
 
-<div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+<div *ngIf="currentStep == 0" class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
   <div class="mb-4 text-uppercase getstarted-title"><h3>Get Free Samples from your favorite brands</h3></div>
   <div class="mb-3">Sample products from favorite brands absolutely free</div>
-  <app-button [text]="'Get Started'" [routerLink]="'step1'" ></app-button>
+  <app-button [text]="'Get Started'" (click)="currentStep = 1" ></app-button>
+</div>
+
+
+<div *ngIf="currentStep == 1" class="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+  <div class="step1-heading mb-3"><h3>What Products are you interested sampling?</h3></div>
+  <div class="mb-3"><app-step-indicator [totalSteps]="9" [currentStep]="currentStep" ></app-step-indicator></div>
+  <div class="mb-3"><app-product-category-list [list]="productCategories" (selectedProducts)="setSelectedProducts($event)" ></app-product-category-list></div>
+  <app-button [text]="'Next Step'"></app-button>
 </div>

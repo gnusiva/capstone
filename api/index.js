@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 const db = require('./db');
 const cors = require('cors');
 const express = require('express')
@@ -6,11 +5,11 @@ const app = express()
 const port = 3000
 app.use(express.json());
 app.use(cors());
-app.get('/getProductCategory', (req: Request, res: Response) => {
+app.get('/getProductCategory', (req, res) => {
   res.send(db.get('productCategories').value())
 });
 
-app.post('/createNewUser', (req: Request, res: Response) => {
+app.post('/createNewUser', (req, res) => {
   console.log(req.body);
   db.get('users').push(req.body).write();
   res.send();

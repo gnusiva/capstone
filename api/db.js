@@ -1,30 +1,30 @@
 
 
-interface ProductCategory {
-  id: number;
-  categoryName: string;
-  img: string;
-  isSelected?: boolean;
-};
+// interface ProductCategory {
+//   id: number;
+//   categoryName: string;
+//   img: string;
+//   isSelected?: boolean;
+// };
 
-interface User {
-  email: string;
-  password: string;
-  age: number;
-  firstname: string;
-  lastname: string;
-  address: string;
-  pinCode: string;
-  country: string;
-  selectedCategories: ProductCategory[];
-};
+// interface User {
+//   email: string;
+//   password: string;
+//   age: number;
+//   firstname: string;
+//   lastname: string;
+//   address: string;
+//   pinCode: string;
+//   country: string;
+//   selectedCategories: ProductCategory[];
+// };
 
-interface DatabaseDefaults {
-  productCategories: ProductCategory[];
-  users: User[];
-}
+// interface DatabaseDefaults {
+//   productCategories: ProductCategory[];
+//   users: User[];
+// }
 
-const dbDefault: DatabaseDefaults = { 
+const dbDefault = { 
   productCategories: [
     {id: 1, img:'https://fashionista.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTcyMDQxMzcxOTg4MjcyMjYz/skin-gym-tools.jpg' , categoryName:"Beauty",isSelected:true},
     {id: 2, img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqOQ3qdQeA_55gDHAhhIxvqRBymsiphuqW_A&usqp=CAU ', categoryName:"Baby" ,isSelected:true},
@@ -78,3 +78,5 @@ const adapter = new FileSync('db.json', { defaultValue: dbDefault });
 const db = low(adapter);
 
 module.exports = db;
+
+// export default db;
