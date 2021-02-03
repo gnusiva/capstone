@@ -19,19 +19,29 @@ export class GetStartedComponent implements OnInit {
   constructor(public api: ApiService) { }
 
   ngOnInit(): void {
+    this.getAllProductCategories();
+  }
+
+
+  getAllProductCategories(): void {
     this.api.getProductCategory().subscribe( (data: ProductCategory[]) => {
       this.allCategories = data;
       const categoryCount = this.allCategories.length;
       this.totalSteps = Math.ceil(categoryCount/this.pageSize);
       this.gotoStep(0);
+      this.getAllBrands();
     });
   }
 
+  getAllBrands(): void {
+
+  }
+
   gotoStep(step: number): void {
+    this.currentStep = step;
     if ( step > this.totalSteps ) {
 
     } else {
-      this.currentStep = step;
       this.productCategories = [...this.paginate(this.allCategories, this.pageSize, this.currentStep )]
       this.allSelectectedProducts.push(...this.currentSelectedProducts);
       this.currentSelectedProducts = [];
