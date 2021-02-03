@@ -15,10 +15,12 @@ import { StepIndicatorComponent } from 'src/app/components/step-indicator/step-i
 import { ComponentsModule } from 'src/app/components/components.module';
 import { ProductCategoryListComponent } from './product-category-list/product-category-list.component';
 import { ProductCategoryCardComponent } from './product-category-list/product-category-card/product-category-card.component';
+import { GetStartedComponent } from './get-started.component';
 
 
 @NgModule({
   declarations: [
+    GetStartedComponent,
     Step1Component,
     Step2Component,
     Step3Component,

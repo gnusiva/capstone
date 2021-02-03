@@ -13,15 +13,15 @@ import { Step9Component } from './step9/step9.component';
 
 const routes: Routes = [
   { path: '', component: GetStartedComponent, },
-  { path: 'step1', component: Step1Component },
-  { path: 'step2', component: Step2Component },
-  { path: 'step3', component: Step3Component },
-  { path: 'step4', component: Step4Component },
-  { path: 'step5', component: Step5Component },
-  { path: 'step6', component: Step6Component },
-  { path: 'step7', component: Step7Component },
-  { path: 'step8', component: Step8Component },
-  { path: 'step9', component: Step9Component }
+  // { path: 'step1', component: Step1Component },
+  // { path: 'step2', component: Step2Component },
+  // { path: 'step3', component: Step3Component },
+  // { path: 'step4', component: Step4Component },
+  // { path: 'step5', component: Step5Component },
+  // { path: 'step6', component: Step6Component },
+  // { path: 'step7', component: Step7Component },
+  // { path: 'step8', component: Step8Component },
+  // { path: 'step9', component: Step9Component }
 ];
 
 @NgModule({

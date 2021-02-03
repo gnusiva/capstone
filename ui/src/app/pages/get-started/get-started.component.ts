@@ -19,7 +19,7 @@ export class GetStartedComponent implements OnInit {
     });
   }
 
-  setSelectedProducts(products: ProductCategory): void {
+  setSelectedProducts(products: any): void {
 
   }
 

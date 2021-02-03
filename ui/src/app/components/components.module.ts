@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GetStartedComponent } from '../pages/get-started/get-started.component';
 import { ButtonComponent } from './button/button.component';
 import { FollowusComponent } from './footer/followus/followus.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,7 +16,6 @@ const components = [
     SubscribeComponent,
     FollowusComponent,
     ButtonComponent,
-    GetStartedComponent,
     StepIndicatorComponent
 ];
 
