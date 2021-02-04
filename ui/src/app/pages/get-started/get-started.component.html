@@ -20,11 +20,9 @@
   <app-button [text]="'Next Step'" (click)="gotoStep(currentStep+1)" ></app-button>
 </div>
 
-{{currentStep}}
 <div *ngIf="currentStep == totalSteps+2 " class="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
   <div class="step1-heading mb-3"><h3>Almost Done</h3></div>
   <div class="mb-3"><app-step-indicator [totalSteps]="totalSteps+3" [currentStep]="currentStep" ></app-step-indicator></div>
-
   <div class="container">
     <div class="row">
       <div class="col-8 mx-auto">
@@ -45,8 +43,34 @@
       </div>
     </div>
   </div>
-
-
-
 </div>
+
+
+<div *ngIf="currentStep == totalSteps+3 " class="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+  <div class="step1-heading mb-3"><h3>Ship Products to</h3></div>
+  <div class="mb-3"><app-step-indicator [totalSteps]="totalSteps+3" [currentStep]="currentStep" ></app-step-indicator></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-8 mx-auto">
+        <div class="row">
+          <div class="col-6 ">
+            <div class="w-100"><input class=" w-100 mb-3 p-2" placeholder="First Name" [(ngModel)]="firstName" ></div>
+            <div class="w-100"><input class=" w-100 mb-3 p-2" placeholder="Address" [(ngModel)]="address" ></div>
+            <div class="d-flex" ><input class=" w-50 mb-3 mr-2 p-2" placeholder="" [(ngModel)]="empty" ><input class=" w-50 mb-3 ml-2 p-2" placeholder="Province" [(ngModel)]="password" ></div>
+          </div>
+          <div class="col-6">
+            <div class="w-100"><input class=" w-100 mb-3 p-2" placeholder="Last Name" [(ngModel)]="lastName" ></div>
+            <div class="w-100"><input class=" w-100 mb-3 p-2" placeholder="Unit/Suite" [(ngModel)]="unitSuite" ></div>
+            <div class="d-flex" ><input class=" w-50 mb-3 mr-2 p-2" placeholder="Postal Code" [(ngModel)]="postalCode" ><input class=" w-50 mb-3 ml-2 p-2" placeholder="Country" [(ngModel)]="password" ></div>
+          </div>
+          <div class="col d-flex">
+            <div class="d-flex align-items-md-baseline"><input [(ngModel)]="aggreed2" id="terms_aggrement" type="checkbox" ><label class="step1-heading aggrlabelwidth " for="terms_aggrement"> I agree the terms and conditions of sampleroo and i am of the age 18 and older</label></div>
+            <app-button class="ml-auto" [disabled]=" ! (firstName && lastName && address && aggreed2 ) " [text]="'Next Step'" (click)="gotoStep(currentStep+1)" ></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
