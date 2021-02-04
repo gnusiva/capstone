@@ -391,6 +391,33 @@
       "address": "111",
       "unitSuite": "111",
       "aggreed2": true
+    },
+    {
+      "productCategories": [
+        {
+          "id": 3,
+          "img": "https://img.freepik.com/free-vector/cleaner-with-cleaning-products-housekeeping-service_18591-52057.jpg?size=338&ext=jpg&ga=GA1.2.1258503325.1610064000",
+          "name": "Cleaning & Household",
+          "isSelected": true
+        }
+      ],
+      "brands": [
+        {
+          "id": 4,
+          "img": "https://centaur-wp.s3.eu-central-1.amazonaws.com/designweek/prod/content/uploads/2016/08/09165704/new-subway%C2%AE-retaurants-logo-5-HR.jpg",
+          "name": "Subway",
+          "isSelected": true
+        }
+      ],
+      "email": "asdf",
+      "password": "asdf",
+      "age": "12",
+      "aggreed": true,
+      "firstName": "asdf",
+      "lastName": "asdf",
+      "address": "asdf",
+      "unitSuite": "asdf",
+      "aggreed2": true
     }
   ]
 }
