@@ -85,7 +85,7 @@ export class GetStartedComponent implements OnInit {
     if(step == this.totalSteps+3 && !(this.email && this.password && this.age !== 'Age' && this.aggreed) ) { return; }
     if(step == this.totalSteps+4 && ! (this.firstName && this.lastName && this.address && this.aggreed2 ) ) { return; }
     this.currentStep = step;
-    this.currentStep = this.totalSteps + 4; // this needs to be deleted
+    // this.currentStep = this.totalSteps + 4; // this needs to be deleted
     if ( step == this.totalSteps+4 ) {
       this.registerUser();
     }
