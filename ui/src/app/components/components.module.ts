@@ -22,7 +22,7 @@ const components = [
 
 @NgModule({
   declarations: [
-    ...components
+    ...components,
   ],
   exports: [
     ...components

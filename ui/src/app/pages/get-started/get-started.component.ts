@@ -32,6 +32,8 @@ export class GetStartedComponent implements OnInit {
   empty: string;
   postalCode: string;
   aggreed2 = false;
+  province: string;
+  country: string;
 
   constructor(public api: ApiService) { }
 
@@ -56,13 +58,37 @@ export class GetStartedComponent implements OnInit {
     });
   }
 
+  registerUser(): void {
+    const data = {
+      productCategories: this.allSelectectedProducts,
+      brands: this.selectedBrands,
+      email: this.email,
+      password: this.password,
+      age: this.age,
+      aggreed: this.aggreed,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      address: this.address,
+      unitSuite: this.unitSuite,
+      empty: this.empty,
+      postalCode: this.postalCode,
+      aggreed2: this.aggreed2,
+      province: this.province,
+      country: this.country
+    }
+    this.api.createUser(data).subscribe( data => {
+      console.log('User created...!')
+    })
+  }
+
   gotoStep(step: number): void {
     if(step == this.totalSteps+3 && !(this.email && this.password && this.age !== 'Age' && this.aggreed) ) { return; }
     if(step == this.totalSteps+4 && ! (this.firstName && this.lastName && this.address && this.aggreed2 ) ) { return; }
-
-
     this.currentStep = step;
-    // this.currentStep = this.totalSteps + 3; // this needs to be deleted
+    this.currentStep = this.totalSteps + 4; // this needs to be deleted
+    if ( step == this.totalSteps+4 ) {
+      this.registerUser();
+    }
     if ( step > this.totalSteps ) {
 
     } else {

@@ -339,5 +339,58 @@
       "name": "Maybelline"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "productCategories": [],
+      "brands": [],
+      "email": "asdf",
+      "password": "sadfg",
+      "age": "12",
+      "aggreed": true,
+      "firstName": "asdf",
+      "lastName": "asdf",
+      "address": "asdf",
+      "unitSuite": "asdf",
+      "aggreed2": true
+    },
+    {
+      "productCategories": [
+        {
+          "id": 3,
+          "img": "https://img.freepik.com/free-vector/cleaner-with-cleaning-products-housekeeping-service_18591-52057.jpg?size=338&ext=jpg&ga=GA1.2.1258503325.1610064000",
+          "name": "Cleaning & Household",
+          "isSelected": true
+        },
+        {
+          "id": 4,
+          "img": "http://cdn.shopify.com/s/files/1/2518/9922/collections/feminine_hygene_1200x1200.png?v=1597489866",
+          "name": "Hygene",
+          "isSelected": true
+        }
+      ],
+      "brands": [
+        {
+          "id": 9,
+          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Dominos_pizza_logo.svg/1200px-Dominos_pizza_logo.svg.png",
+          "name": "Domino's",
+          "isSelected": true
+        },
+        {
+          "id": 10,
+          "img": "data:image/png;base64,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",
+          "name": "Lakme",
+          "isSelected": true
+        }
+      ],
+      "email": "1111",
+      "password": "11111",
+      "age": "1",
+      "aggreed": true,
+      "firstName": "111",
+      "lastName": "111",
+      "address": "111",
+      "unitSuite": "111",
+      "aggreed2": true
+    }
+  ]
 }

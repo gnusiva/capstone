@@ -18,4 +18,8 @@ export class ApiService {
     return this.http.get('http://localhost:3000/getBrands');
   }
 
+  createUser(data: any): Observable<any> {
+    return this.http.post('http://localhost:3000/createNewUser', data);
+  }
+
 }
