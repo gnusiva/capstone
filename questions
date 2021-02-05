@@ -1,0 +1,26 @@
+Questions:
+1. the number of nested levels ( dynamic or static )
+2. at any given screen, user is allowed to select only one item or more?
+
+Workflow 1
+===========
+1. select category ( only one category )
+2. showing sub set of the category ( only one )
+3. showing sub set of previous page.
+
+DataSet:
+========
+Beauty
+    
+Pets
+    Cats
+        food1
+            type1
+                brand1
+                brand3
+            type2
+        food2
+    Dogs
+        food1
+        food2
+Baby
