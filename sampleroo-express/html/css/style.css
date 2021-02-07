@@ -74,7 +74,7 @@
     color: var(--white);
     font-size: 12px;
     border-radius: 3px;
-  }
+}
   
 .btn-disabled {
     background: var(--grey);
@@ -93,3 +93,35 @@
     background: var(--blue);
 }
   
+
+/* cards.html */
+
+.product-category-card {
+    /* border: 1px solid var(--grey); */
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+  
+.product-category-card-active {
+    border: 1px solid var(--blue);
+}
+  
+.product-name {
+    font-size: 12px;
+    color: var(--grey);
+}
+  
+.product-name-active {
+    color: var(--blue);
+}
+  
+.image-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--blue);
+    opacity: 0.5;
+}

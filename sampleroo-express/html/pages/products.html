@@ -15,17 +15,34 @@
         <div class="flex-grow-1 py-4">
             <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
                 <div class="step1-heading mb-3"><h3>What Products are you interested sampling?</h3></div>
-                <div class="mb-3">
-                    <div include-html="/components/stepper.html" current-step="3" total-steps="5" ></div>
+                <div class="mb-3" >
+                    <div include-html="/components/stepper.html" total-steps="5" current-step="2"  ></div>
                 </div>
-                <div class="mb-3"><app-product-category-list [list]="productCategories" (selectedProducts)="setSelectedProducts($event)" ></app-product-category-list></div>
-                <a class="button-link" href=""> <div class="button-style px-3 py-2 cursor-pointer"  >Next Step</div></a>
+                <div class="mb-3">
+                    <div include-html="/components/cards.html" data="productsArr" ></div>
+                </div>
+                <div class="button-style px-3 py-2 cursor-pointer" onclick="gotoNextpage()" >Next Step</div>
             </div>
         </div>
-        <div include-html="/components/footer.html"></div>
+        <!-- <div include-html="/components/footer.html"></div> -->
     </div>
     <script>
+        window.productsArr = [
+            { id: 1, name: 'Beauty', imgUrl: '/images/categories/beauty.png', linkUrl: '/pages/subcategory/beauty.html' },
+            { id: 2, name: 'Baby', imgUrl: '/images/categories/baby.png' },
+            { id: 3, name: 'Cleaning & Household', imgUrl: '/images/categories/cleaning.png' },
+            { id: 4, name: 'Hygene', imgUrl: '/images/categories/hygene.png' },
+            { id: 5, name: 'Food & Fitness', imgUrl: '/images/categories/food.png' },
+            { id: 6, name: 'Pets', imgUrl: '/images/categories/pets.png' }
+        ]
+        let selectedProduct = null;
         includeHTML();
+
+        function gotoNextpage() {
+            const pageUrl = window.productsArr.filter(item => item.id === window.selectedCards[0]).map(item => item.linkUrl )[0];
+            window.location.href = pageUrl;
+        }
+
     </script>
 </body>
 </html>
