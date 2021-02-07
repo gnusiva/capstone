@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="w-100 h-100">
 <head>
@@ -14,9 +13,9 @@
         <div include-html="/components/header.html"></div>
         <div class="flex-grow-1 py-4">
             <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                <div class="step1-heading mb-3"><h3>What Products are you interested sampling?</h3></div>
+                <div class="step1-heading mb-3"><h3>Tell us a little more</h3></div>
                 <div class="mb-3" >
-                    <div include-html="/components/stepper.html" total-steps="5" current-step="1"  ></div>
+                    <div include-html="/components/stepper.html" total-steps="5" current-step="2"  ></div>
                 </div>
                 <div class="mb-3">
                     <div include-html="/components/cards.html" data="productsArr" is-multiple-select="false" on-card-selection="setSelectedProduct" ></div>
@@ -29,12 +28,12 @@
     <script>
         // this is something hard-coded in UI, later we may need to get this array of data from backend api. 
         let productsArr = [
-            { id: 1, name: 'Beauty', imgUrl: '/images/categories/beauty.png', linkUrl: '/pages/subcategory/beauty.html' },
-            { id: 2, name: 'Baby', imgUrl: '/images/categories/baby.png', linkUrl: '/pages/subcategory/baby.html' },
-            { id: 3, name: 'Cleaning & Household', imgUrl: '/images/categories/cleaning.png', linkUrl: '/pages/subcategory/cleaning.html' },
-            { id: 4, name: 'Hygene', imgUrl: '/images/categories/hygene.png', linkUrl: '/pages/subcategory/hygene.html' },
-            { id: 5, name: 'Food & Fitness', imgUrl: '/images/categories/food.png', linkUrl: '/pages/subcategory/food.html' },
-            { id: 6, name: 'Pets', imgUrl: '/images/categories/pets.png', linkUrl: '/pages/subcategory/pets.html' }
+            { id: 1, name: 'Feeding and Nursing', imgUrl: '/images/categories/baby/feeding.png', },
+            { id: 2, name: 'Baby Bath & Skin', imgUrl: '/images/categories/baby/bath.png' },
+            { id: 3, name: 'Clothing', imgUrl: '/images/categories/baby/cloth.png' },
+            { id: 4, name: 'Diapers & Potty', imgUrl: '/images/categories/baby/diaper.png' },
+            { id: 5, name: 'Health & Safety', imgUrl: '/images/categories/baby/safety.png' },
+            { id: 6, name: 'Toys', imgUrl: '/images/categories/baby/toys.png' }
         ];
 
         let selectedProduct = null;
