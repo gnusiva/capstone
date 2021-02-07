@@ -12,7 +12,10 @@
 * {
     outline: none;
 }
-  
+
+.button-link {
+    text-decoration: none;
+}
 
 /* index.html */
 .header-right-text {
@@ -23,6 +26,27 @@
     font-size: 22px;
     color: var(--grey);
 }
+
+.getstarted-title {
+    color: var(--blue);
+}
+
+.step1-heading {
+    color: var(--blue);
+    text-align: center;
+}
+
+
+.aggrlabelwidth {
+    width: 360px;
+    padding-left: 10px;
+}
+
+
+.laststep-text {
+    color: var(--grey);
+}
+  
   
 /* footer.html */
 .footer-background {
@@ -55,5 +79,17 @@
 .btn-disabled {
     background: var(--grey);
     cursor: not-allowed;
+}
+  
+/* Stepper */
+
+.step-circle {
+    padding: 5px;
+    border: 1px solid var(--grey);
+    border-radius: 100%;
+}
+  
+.step-circle-active {
+    background: var(--blue);
 }
   
