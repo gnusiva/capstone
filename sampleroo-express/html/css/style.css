@@ -17,6 +17,16 @@
     text-decoration: none;
 }
 
+.background-blue-color {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.button-blue-color:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
 /* index.html */
 .header-right-text {
     color: var(--blue);
@@ -61,7 +71,8 @@
   
 ::placeholder {
     color: var(--blue);
-    opacity: 0.5; /* Firefox */
+    opacity: 0.5; 
+    /* Firefox */
 }
 
 .footer-fonts {
@@ -124,4 +135,21 @@
     right: 0;
     background-color: var(--blue);
     opacity: 0.5;
+}
+
+/* login page */
+
+.model-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
+    z-index: 100;
+}
+
+.model-content {
+    background: var(--white);
+    opacity: 100% !important;
 }

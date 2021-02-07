@@ -8,6 +8,12 @@ Workflow 1
 2. showing sub set of the category ( only one )
 3. showing sub set of previous page.
 
+Known Workflows
+==============
+1. Home page -> products category page -> sub category page -> brands selection page -> user details page -> shipping address page. 
+2. Clicling on login link on the header -> Show pop up window with login form. 
+
+
 DataSet:
 ========
 

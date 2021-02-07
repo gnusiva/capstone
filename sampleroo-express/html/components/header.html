@@ -1,5 +1,58 @@
+
 <div class="w-100 d-flex border-bottom px-3 py-2 align-items-center">
     <a class="button-link" href="/"><div class="logo-text cursor-pointer" >SamplRoo</div></a>
-    <a class="button-link ms-auto" href="/"><div class="header-right-text  me-3 cursor-pointer" >Login</div></a>
+    <div class="header-right-text ms-auto  me-3 cursor-pointer" onclick="openLoginPopup(this)" >Login</div>
     <a class="button-link" href="/"><div class="header-right-text font-weight-bold cursor-pointer" >Get Started</div></a>
 </div>
+
+<div id="login-popup" class="model-container" hidden onclick="hidePopup(this)">
+    <div class="container h-100">
+        <div class="row h-100 mx-auto">
+            <div class="col-12 col-md-5 h-100 mx-auto">
+                <div class="py-5 w-100 h-100">
+                    <div class="w-100 h-100 model-content d-flex flex-column" id="model-content" >
+                        <div class="w-100 h-100 p-3 flex-grow-1 d-flex flex-column overflow-auto">
+                            <h3 class="text-center pb-4">Login</h3>
+                            <form>
+                                <div class="form-group mb-3">
+                                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email Address">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+                                </div>
+                            </form>
+                            <div class="mb-3 text-end">
+                                Forget Password?
+                            </div>
+                            <button type="button" class="btn btn-dark mb-3 w-100">Login</button>
+                            <button type="button" class="btn btn-primary mb-5 w-100 background-blue-color">Primary</button>
+                            
+                        </div>
+                        <div class="p-4 background-blue-color d-flex flex-column">
+                            <div class="mb-2 text-center">Not part of the roo? Sign up Now!</div>
+                            <button type="button" class="btn btn-light">Light</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.getElementById('model-content').addEventListener( 'click', e => {
+        e.stopPropagation();
+    });
+
+    function openLoginPopup() {
+        document.getElementById('login-popup').removeAttribute('hidden');
+    }
+
+    function hidePopup(el) {
+        el.setAttribute('hidden', '');
+    }
+
+
+</script>
