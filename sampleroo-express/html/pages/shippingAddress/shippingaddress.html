@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en" class="w-100 h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="/css/style.css">
+    <title>SampleRoo</title>
+    <script src="/js/includeHtml.js"></script>
+</head>
+<body class="w-100 h-100">
+    <div class="h-100 w-100 d-flex flex-column">
+        <div include-html="/components/header.html"></div>
+        <div class="flex-grow-1 py-4">
+            <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                <div class="step1-heading mb-3"><h3>Ship Products to</h3></div>
+                <div class="mb-3" >
+                    <div include-html="/components/stepper.html" total-steps="5" current-step="5"  ></div>
+                </div>
+                <div class="mb-3 w-100">
+                    <div class="container">
+                        <div class="row mx-auto">
+                            <div class="col-12 col-md-6  mx-auto">
+                                <form>
+                                    <div class="form-group mb-3">
+                                      <!-- <label for="exampleFormControlInput1">First Name</label> -->
+                                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <!-- <label for="exampleFormControlInput1">Address</label> -->
+                                        <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Address">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <!-- <label for="exampleFormControlInput1">Address</label> -->
+                                                <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <!-- <label for="exampleFormControlInput1">Address</label> -->
+                                                <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Province">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                  </form>
+                            </div>
+                            <div class="col-12 col-md-6  mx-auto">
+                                <form>
+                                    <div class="form-group mb-3">
+                                      <!-- <label for="exampleFormControlInput1">Last Name</label> -->
+                                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <!-- <label for="exampleFormControlInput1">Unit/Suite</label> -->
+                                        <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Unit/Suite">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <!-- <label for="exampleFormControlInput1">Address</label> -->
+                                                <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Postal Code">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <!-- <label for="exampleFormControlInput1">Address</label> -->
+                                                <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Country">
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="button-style px-3 py-2 cursor-pointer" onclick="gotoNextpage()" >Next Step</div>
+            </div>
+        </div>
+        <!-- <div include-html="/components/footer.html"></div> -->
+    </div>
+    <script>
+       
+
+        // this is to bring included html into current page. 
+        includeHTML();
+
+        // this is to change the url of the browser to load next page. 
+        function gotoNextpage() {
+            window.location.href = selectedProduct.linkUrl;
+        }
+    </script>
+</body>
+</html>

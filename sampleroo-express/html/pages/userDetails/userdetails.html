@@ -18,8 +18,35 @@
                 <div class="mb-3" >
                     <div include-html="/components/stepper.html" total-steps="5" current-step="4"  ></div>
                 </div>
-                <div class="mb-3">
-                    User Details
+                <div class="mb-3 w-100">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-md-6 mx-auto">
+                                <form>
+                                    <div class="form-group mb-3">
+                                      <!-- <label for="exampleFormControlInput1">Email address</label> -->
+                                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email Address">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <!-- <label for="exampleFormControlInput1">Password</label> -->
+                                        <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="password">
+                                      </div>
+                                    <div class="form-group mb-3">
+                                      <label for="exampleFormControlSelect1">Age</label>
+                                      <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                      </select>
+                                    </div>
+                                    
+                                  </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="button-style px-3 py-2 cursor-pointer" onclick="gotoNextpage()" >Next Step</div>
             </div>
@@ -27,7 +54,6 @@
         <!-- <div include-html="/components/footer.html"></div> -->
     </div>
     <script>
-        // this is something hard-coded in UI, later we may need to get this array of data from backend api. 
         
 
         // this is to bring included html into current page. 
@@ -35,7 +61,7 @@
 
         // this is to change the url of the browser to load next page. 
         function gotoNextpage() {
-            window.location.href = selectedProduct.linkUrl;
+            window.location.href = '/pages/shippingAddress/shippingaddress.html';
         }
     </script>
 </body>
