@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en" class="w-100 h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="css/bootstrap.min.css">
+    <link rel="stylesheet"  href="css/style.css">
+    <title>SampleRoo</title>
+    <script src="js/includeHtml.js"></script>
+</head>
+<body class="w-100 h-100">
+    <div class="h-100 w-100 d-flex flex-column">
+        <div include-html="./components/header.html"></div>
+        <div class="flex-grow-1 py-4">
+          <router-outlet></router-outlet>
+        </div>
+        <div include-html="./components/footer.html"></div>
+    </div>
+    <script>
+        includeHTML();
+    </script>
+</body>
+</html>
