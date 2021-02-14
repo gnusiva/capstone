@@ -47,6 +47,7 @@
 
         // this is to change the url of the browser to load next page. 
         function gotoNextpage() {
+            // preventing navigation to next page, if none of the cards are selected. 
             if ( selectedProduct && selectedProduct.length > 0 ) {
                 window.location.href = '/pages/userDetails/userdetails.html';
             }
