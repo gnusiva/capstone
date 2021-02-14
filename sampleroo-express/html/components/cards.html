@@ -60,7 +60,7 @@
     function selectMultipleCard(el) {
         // below is to flip the card state. if selected, we need unselect it. if not selected, we need to select it. 
         let isHidden = el.querySelector('#cardImageOverlay').hasAttribute('hidden');
-        if (isHidden) {
+        if (isHidden && selectedCardsArr.length < 3 ) {
             el.querySelector('#cardImageOverlay').removeAttribute('hidden');
             el.querySelector('#cardLabel').classList.add('product-name-active');
         } else {
