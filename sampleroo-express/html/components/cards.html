@@ -23,6 +23,15 @@
     const cardsData = eval(dataVariableName);
     let selectedCardsArr = [];
 
+    if ( isMultipleSelect ) {
+        cardContainerEl.classList.remove('d-flex');
+        cardContainerEl.classList.remove('flex-wrap');
+        // cardContainerEl.classList.remove('justify-content-center');
+        cardContainerEl.classList.remove('w-100');
+        cardContainerEl.classList.add('row');
+        // cardContainerEl.classList.add('mx-auto');
+    }
+
     for(let i=0; i<cardsData.length; i++){
         const cardData = cardsData[i];
         const cardEl = document.querySelector('#card').cloneNode(true);
@@ -31,6 +40,12 @@
         cardEl.querySelector('#cardImageOverlay').setAttribute('hidden','');
         cardEl.removeAttribute('hidden');
         cardEl.querySelector('#cardLabel').innerHTML = cardData.name;
+        
+        if ( isMultipleSelect ) {
+            cardEl.classList.add('col-4');
+            cardEl.classList.add('col-md-2');
+        }
+
         cardContainerEl.appendChild(cardEl);
     }
 
