@@ -51,7 +51,9 @@
 
         // this is to change the url of the browser to load next page. 
         function gotoNextpage() {
-            window.location.href = '/pages/userDetails/userdetails.html';
+            if ( selectedProduct && selectedProduct.length > 0 ) {
+                window.location.href = '/pages/userDetails/userdetails.html';
+            }
         }
     </script>
 </body>
