@@ -23,13 +23,12 @@
     const cardsData = eval(dataVariableName);
     let selectedCardsArr = [];
 
+    // if we are in multiselect mode, we need to display 5 cols per row, so we are removing d-flex and flex-wrap
     if ( isMultipleSelect ) {
         cardContainerEl.classList.remove('d-flex');
         cardContainerEl.classList.remove('flex-wrap');
-        // cardContainerEl.classList.remove('justify-content-center');
         cardContainerEl.classList.remove('w-100');
         cardContainerEl.classList.add('row');
-        // cardContainerEl.classList.add('mx-auto');
     }
 
     for(let i=0; i<cardsData.length; i++){
@@ -41,6 +40,7 @@
         cardEl.removeAttribute('hidden');
         cardEl.querySelector('#cardLabel').innerHTML = cardData.name;
         
+        // if we are in multiselect mode, we need to add col-* class to make this show 5 columns above 750px and 2 columns if lesser resolution. 
         if ( isMultipleSelect ) {
             cardEl.classList.add('col-4');
             cardEl.classList.add('col-md-2');
