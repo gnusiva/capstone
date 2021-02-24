@@ -1,3 +1,64 @@
+======================================17-02-2021========================================================
+Images Data: ( prince )
+	1. Brand names should be the brandName.jpg instead of 1.jpg 
+	2. Crop all the images to 120 x 120 
+
+Backend discussions: 
+    1. Nodejs for backend.
+    2. Express (library) for nodejs backend api
+    3. Database will be Sqlite
+    4. Database communication will be using SQL Query. 
+    5. Both UI & Backend APIs will run on same server. ( npm start will launch both of them. )
+
+Workflow: 
+    1. After successful user creation, there is no verification of email is needed. 
+
+List of APIs:
+    1. Fetch API the list of products. /products/all
+    2. Fetch API the list of subCategory. /products/category/{category_id}  ( example: /products/category/3 )
+    3. Fetch API the brands of a subCategory. /brands/category/{category_id}/
+    4. Store API the user inputs
+        product:        specific_product (example: baby or beauty)
+        subCategory:    specific_subCategory (example: hair or nails)
+        brands:         Array of brands (example: [brandId1, brandId2, brandId3 ])
+        user:           Object of { email: 'some@some.com', password: 'sometext', age: 2, termsAggred: boolean } 
+        userAddress:    Object of { firstName: 'asdf', lastName: 'asdf', address: 'asdf', unit: 'asdf', field1: 'asdf', province: 'asdf', postalCode: 'asdf', country: 'asdf' }
+    5. Login API. /login post data { email: 'asdf', password: 'asdf' } 
+
+UI Page:
+    1. Page to show user creation went successful and link to go to dashboard by login. ( page: 15 in pdf and add one more line on top saying your account has been created successfully. )
+    2. Mofidy the login popup to include google and facebook login buttons. (no need logo icon on these buttons)
+        1. login via email/password
+        2. login via google 
+        3. login via facebook
+    3. User Registration flow / email/password page
+        1. if user enters an existing email, while clicking on next button, an error message should appear below email filed saying "this email is taken already, pleaes enter a different email."
+        2. for password field, any number of char is accepted, except left empty. If left empty, we should show "password is required" while clicking next button. 
+        3. for age field, it should start from 18 to 100
+    4. Shipping Address page, will have no validation other than terms aggree checkbox. 
+    5. Login popup
+        1. If email/password was wrong, then show " email / password is incorrect "
+        2. if successful login, then simply hide this popup and show get started page. 
+
+
+All other database:
+1. you need to install database ( for example, download mysql  and install in your laptop )
+2. you need to configure the database to the right credentials and port number
+3. you need to import the data into this database by creating the right db name and table names. 
+4. launch the database. 
+
+Sqlite
+1. installation ( taken care by backend api aplication )
+2. configuration ( taken care by backend api )
+3. import data ( shipped along with backend api source code, no need to manual import, taken care  )
+4. launch ( taken care )
+
+Futher Discussion:
+1. discuss the database table structure (how many table, what columns its)
+2. for google and facebook, we need either backend api developed or firebase account to achieve this. 
+3. after scuccesful login, what session mechanism to be provided? token, or cookie, etc...
+
+===========================================================================================================
 Questions:
 1. the number of nested levels ( dynamic or static )
 2. at any given screen, user is allowed to select only one item or more?
