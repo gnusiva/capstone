@@ -1,7 +1,54 @@
-======================================17-02-2021========================================================
+======================================26-02-2021========================================================
+Table Structure/Schema (table columns):
+    1. products ( table ) - will have 6 rows. (auto populate the rows using a script)
+        id (column)
+        name (column)
+        image (column)
+    2. subCategory ( table ) - will have 36 rows. (auto populate the rows using a script)
+        id (column)
+        productId (column)
+        name (column)
+        image (column)
+    3. brands ( table ) - will have 720 rows. (auto populate the rows using a script / will be dependend on princee data  )
+        id (column)
+        subCategoryId (column)
+        name (column)
+        image (column)
+    4. users ( table ) - will have 0 rows initally, as the user register themself, this table will be filled with user data. 
+        id (column)
+        email 
+        password
+        age
+        firstName
+        lastName
+        address
+        unit
+        field1
+        province
+        postalCode
+        country
+        products
+        subCategory
+        brands
+
+
+Structure of Entier application:
+    Frontend UI (html/css)
+    Backend API (nodejs/express)
+    Database (sqlite)
+
+
+
+======================================25-02-2021========================================================
 Images Data: ( prince )
-	1. Brand names should be the brandName.jpg instead of 1.jpg 
-	2. Crop all the images to 120 x 120 
+	1. Brand names should be the filename example: brandName.jpg instead of 1.jpg 
+    2. folder containing these images should also have proper subCategory name. 
+	3. Crop all the images to 120 x 120 
+Login: ( prince ) -- develop callback urls.  (passport.js library)
+    1. Google Account (google login) -- gmail username/password 
+    2. Facebook ( facebook account ) -- fb username/password 
+Forget Password workflow --- confirm with client. 
+
 
 Backend discussions: 
     1. Nodejs for backend.
@@ -15,15 +62,27 @@ Workflow:
 
 List of APIs:
     1. Fetch API the list of products. /products/all
-    2. Fetch API the list of subCategory. /products/category/{category_id}  ( example: /products/category/3 )
+    2. Fetch API the list of subCategory. /products/category/{product_id}  ( example: /products/category/3 )
     3. Fetch API the brands of a subCategory. /brands/category/{category_id}/
-    4. Store API the user inputs
+    4. Store API the user inputs POST API /register/user
         product:        specific_product (example: baby or beauty)
         subCategory:    specific_subCategory (example: hair or nails)
         brands:         Array of brands (example: [brandId1, brandId2, brandId3 ])
         user:           Object of { email: 'some@some.com', password: 'sometext', age: 2, termsAggred: boolean } 
         userAddress:    Object of { firstName: 'asdf', lastName: 'asdf', address: 'asdf', unit: 'asdf', field1: 'asdf', province: 'asdf', postalCode: 'asdf', country: 'asdf' }
-    5. Login API. /login post data { email: 'asdf', password: 'asdf' } 
+    5. Verfiy email id by sending email with a api link. ( at the time of creation )
+    6. Check email /register/checkemail post data as { emailId: 'asdfasdf' }
+    7. Login API. /login post data { email: 'asdf', password: 'asdf' } 
+    8. Loging with google /auth/google/callback (using passportjs)
+    9. Login with facebook /auth/facebook/callback (using passportjs)
+    10. Verify the token /auth/verify/token POST respond { token: 'JWT Token' } -- discuss 
+        1. it will figure out the new google user or existing google user 
+        2. it will also create an entry on users table once the login from google 
+    11. Get user Info /User/Info ( token in authorization header. )
+    12. logout api to invalidate the session.
+    13. Check email /resetpassword/checkemail post data as { emailId: 'asdfasdf' }
+    14. email link verfication at the time of reseting the password. 
+    15. Reset Password /resetpassword/rest post data { emailId: 'asdfas', password: 'adsfas' }
 
 UI Page:
     1. Page to show user creation went successful and link to go to dashboard by login. ( page: 15 in pdf and add one more line on top saying your account has been created successfully. )
@@ -35,9 +94,14 @@ UI Page:
         1. if user enters an existing email, while clicking on next button, an error message should appear below email filed saying "this email is taken already, pleaes enter a different email."
         2. for password field, any number of char is accepted, except left empty. If left empty, we should show "password is required" while clicking next button. 
         3. for age field, it should start from 18 to 100
+        4. email verification step is not needed. 
     4. Shipping Address page, will have no validation other than terms aggree checkbox. 
     5. Login popup
         1. If email/password was wrong, then show " email / password is incorrect "
+        3. If forget passwod is clicked, then user should be taken to a page where, ***( new UI Page )*** (verify with client)
+            1. email id field and next button. (if the email doesn't exist on backend, we should show some error message saying "email not found" )
+            2. clicking on this next button should show the user with password/retype password form and submit button. 
+            3. clicking submit button, user should be taken back to ui applicaiton with login popup opened. 
         2. if successful login, then simply hide this popup and show get started page. 
 
 
