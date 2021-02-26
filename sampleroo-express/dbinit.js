@@ -2,36 +2,40 @@ var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('db.sqlite');
 const fs = require('fs');
 
-const productDir = './html/images/categories/';
-fs.readdirSync(productDir).forEach(file => {
-    if ( fs.lstatSync(productDir).isDirectory() ) {
-        console.log(file);
-    }
-  });
 
-// db.serialize(function() {
-//   db.run(`
-//     CREATE TABLE "Products" (
-//         "id"	INTEGER,
-//         "name"	TEXT,
-//         "image"	TEXT,
-//         PRIMARY KEY("id")
-//     )
-//   `);
+function base64_encode(file) {
+    // read binary data
+    var bitmap = fs.readFileSync(file);
+    // convert binary data to base64 encoded string
+    return new Buffer.from(bitmap).toString('base64');
+}
 
+db.serialize( () => {
 
-  
-//   db.run('INSERT INTO "main"."Products"("id","name","image") VALUES (NULL,NULL,NULL);')
+    // populate all products from /html/images/categories/* directory
+    db.run(`
+        CREATE TABLE IF NOT EXISTS "Products" (
+            "id"	INTEGER,
+            "name"	TEXT,
+            "image"	TEXT,
+            PRIMARY KEY("id")
+        )
+    `);
+    const productDir = './html/images/categories/';
+    fs.readdirSync(productDir).forEach(file => {
+        const filePath = productDir + file;
+        if ( !fs.lstatSync(filePath).isDirectory() && file.includes('.png') ) {
+            console.log(file);
+            const imageBase64 = 'data:image/png;base64,' + base64_encode(filePath);
+            const fileName = file.replace('.png','');
+            const query = `INSERT INTO Products("id","name","image") VALUES (NULL,"${fileName}","${imageBase64}");`;
+            console.log(query);
+            db.run(query);
+        }
+    });
 
-//   var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
-//   for (var i = 0; i < 10; i++) {
-//       stmt.run("Ipsum " + i);
-//   }
-//   stmt.finalize();
+    
 
-//   db.each("SELECT rowid AS id, info FROM lorem", function(err, row) {
-//       console.log(row.id + ": " + row.info);
-//   });
-// });
+});
 
-// db.close();
+db.close();
