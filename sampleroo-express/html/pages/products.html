@@ -48,7 +48,7 @@
         }
 
         fetch('/products/all').then(response => response.json()).then( res => {
-            productsArr = res; 
+            productsArr = res.map( (item, index) => { item.resId = item.id; item.id = index + 1; return item; }); 
             document.getElementById('loadingProducts').hidden = true;
             // this is to bring included html into current page. 
             includeHTML();
@@ -57,7 +57,8 @@
 
         // this is to change the url of the browser to load next page. 
         function gotoNextpage() {
-            window.location.href = '/pages/subCategory.html?productId=' + selectedProduct.id;
+            localStorage.setItem('productId', selectedProduct.resId);
+            window.location.href = '/pages/subCategory.html?productId=' + selectedProduct.resId;
         }
     </script>
 </body>

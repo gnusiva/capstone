@@ -49,7 +49,7 @@
         const productId = urlParams.get('productId');
         
         fetch(`/products/category/${productId}`).then(response => response.json()).then( res => {
-            productsArr = res; 
+            productsArr = res.map( (item, index) => { item.resId = item.id; item.id = index + 1; return item; }); 
             document.getElementById('loadingSubCategory').hidden = true;
             // this is to bring included html into current page. 
             includeHTML();
@@ -58,7 +58,8 @@
 
         // this is to change the url of the browser to load next page. 
         function gotoNextpage() {
-            
+            localStorage.setItem('subCategoryId', selectedProduct.resId);
+            window.location.href = '/pages/brands.html?subCategoryId=' + selectedProduct.resId;
         }
     </script>
 </body>

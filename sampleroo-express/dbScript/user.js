@@ -21,9 +21,9 @@ db.serialize( async () => {
             "province"          TEXT,
             "postalCode"        TEXT,
             "country"           TEXT,
-            "products"          TEXT,
-            "subCategory"       TEXT,
-            "brands"            TEXT,
+            "productsId"        TEXT,
+            "subCategoriesId"   TEXT,
+            "brandsId"          TEXT,
             PRIMARY KEY("id")
         )
     `);
