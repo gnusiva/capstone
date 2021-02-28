@@ -72,7 +72,6 @@
 
         // this is to change the url of the browser to load next page. 
         function gotoNextpage() {
-            debugger
             localStorage.setItem('brandId', selectedProduct.map(item => item.resId).toString() );
             window.location.href = '/pages/userdetails.html';
         }
