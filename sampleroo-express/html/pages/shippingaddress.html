@@ -94,12 +94,16 @@
     </div>
     <script>
        
+       let creatingUser = false;
 
         // this is to bring included html into current page. 
         includeHTML();
 
         // this is to change the url of the browser to load next page. 
         function gotoNextpage() {
+
+            if ( creatingUser ) { return }
+
             let firstName = document.getElementById('firstName').value;
             let address = document.getElementById('address').value;
             let field1 = document.getElementById('field1').value;
@@ -109,7 +113,7 @@
             let postalCode = document.getElementById('postalCode').value;
             let country = document.getElementById('country').value;
             let shippingTerms = document.getElementById('shippingTerms').checked;
-            let shippingButton = document.getElementById('shippingButton').value;
+            let shippingButton = document.getElementById('shippingButton');
             
             if ( !shippingTerms ) {
                     document.getElementById('shippingTermsValidationErr').innerHTML = 'Please agree the terms and condition';
@@ -130,6 +134,9 @@
             const productId = localStorage.getItem('productId');
             const postObj = {...userDetails, ...shippingDetails, brandId, productId, subCategoryId };
 
+            shippingButton.innerHTML = 'Please Wait...';
+            shippingButton.style.background = 'gainsboro';
+            creatingUser = true;
             fetch('/register/user', {
                 method: 'POST',
                 headers: {

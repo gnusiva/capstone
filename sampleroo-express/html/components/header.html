@@ -15,16 +15,19 @@
                             <h3 class="text-center pb-4">Login</h3>
                             <form>
                                 <div class="form-group mb-3">
-                                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email Address">
+                                  <input type="email" class="form-control" id="loginEmail" placeholder="Email Address">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+                                    <input type="password" class="form-control" id="loginPassword" placeholder="Password">
                                 </div>
                             </form>
                             <div class="mb-3 text-end">
                                 Forget Password?
                             </div>
-                            <button type="button" class="btn btn-dark mb-3 w-100">Login</button>
+                            <div hidden id="loginSuccessMessage" class="py-2 text-success text-center" ></div>
+                            <div hidden id="loginFailureMessage" class="py-2 text-danger text-center" ></div>
+                            
+                            <button type="button" class="btn btn-dark mb-3 w-100" onclick="login()" >Login</button>
                             <button type="button" class="btn btn-primary mb-3 w-100 background-blue-color">Continue with Google</button>
                             <button type="button" class="btn btn-primary mb-5 w-100 background-blue-color">Continue with Facebook</button>
                             
@@ -55,5 +58,34 @@
         el.setAttribute('hidden', '');
     }
 
+    function login() {
+        const loginEmail = document.getElementById('loginEmail');
+        const loginPassword = document.getElementById('loginPassword');
+        const loginSuccessMessage = document.getElementById('loginSuccessMessage');
+        const loginFailureMessage = document.getElementById('loginFailureMessage');
+        loginSuccessMessage.innerHTML = '';
+        loginFailureMessage.innerHTML = '';
+        loginSuccessMessage.hidden = true;
+        loginFailureMessage.hidden = true;
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email: loginEmail.value, password: loginPassword.value})
+        }).then(response => response.json()).then( res => {
+            if(res.length > 0) {
+                loginSuccessMessage.hidden = false;
+                loginSuccessMessage.innerHTML = 'Login Successsful. '
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2000);
+            } else {
+                loginFailureMessage.hidden = false;
+                loginFailureMessage.innerHTML = 'email / password is incorrect';
+            }
+        });
+    }
 
 </script>
