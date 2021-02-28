@@ -19,9 +19,10 @@
                     <div include-html="/components/stepper.html" total-steps="5" current-step="1"  ></div>
                 </div>
                 <div class="mb-3">
+                    <div id="loadingProducts" class="py-5 text-center">Loading Products...</div>
                     <div include-html="/components/cards.html" data="productsArr" is-multiple-select="false" on-card-selection="setSelectedProduct" ></div>
                 </div>
-                <div class="button-style px-3 py-2 cursor-pointer" onclick="gotoNextpage()" >Next Step</div>
+                <div hidden id="productNextButton" class="button-style px-3 py-2 cursor-pointer" onclick="gotoNextpage()" >Next Step</div>
             </div>
         </div>
         <!-- <div include-html="/components/footer.html"></div> -->
@@ -47,14 +48,16 @@
         }
 
         fetch('/products/all').then(response => response.json()).then( res => {
-            productsArr = res.map( item => { item.imgUrl = item.image; return item; });
+            productsArr = res; 
+            document.getElementById('loadingProducts').hidden = true;
             // this is to bring included html into current page. 
             includeHTML();
+            document.getElementById('productNextButton').hidden = false;
         });
 
         // this is to change the url of the browser to load next page. 
         function gotoNextpage() {
-            window.location.href = selectedProduct.linkUrl;
+            window.location.href = '/pages/subCategory.html?productId=' + selectedProduct.id;
         }
     </script>
 </body>

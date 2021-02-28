@@ -35,7 +35,7 @@
         const cardData = cardsData[i];
         const cardEl = document.querySelector('#card').cloneNode(true);
         cardEl.setAttribute('id', 'card'+i );
-        cardEl.querySelector('#cardImage').src = cardData.imgUrl
+        cardEl.querySelector('#cardImage').src = cardData.image;
         cardEl.querySelector('#cardImageOverlay').setAttribute('hidden','');
         cardEl.removeAttribute('hidden');
         cardEl.querySelector('#cardLabel').innerHTML = cardData.name;
