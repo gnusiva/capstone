@@ -76,11 +76,22 @@
             body: JSON.stringify({email: loginEmail.value, password: loginPassword.value})
         }).then(response => response.json()).then( res => {
             if(res.length > 0) {
-                loginSuccessMessage.hidden = false;
-                loginSuccessMessage.innerHTML = 'Login Successsful. '
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 2000);
+                if ( res[0] == 'true' ) {
+                    loginSuccessMessage.hidden = false;
+                    loginSuccessMessage.classList.remove('text-warning');
+                    loginSuccessMessage.classList.add('text-success');
+                    loginSuccessMessage.innerHTML = 'Login Successsful. '
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 2000);
+                } else {
+                    loginSuccessMessage.hidden = false;
+                    loginSuccessMessage.classList.remove('text-success');
+                    loginSuccessMessage.classList.add('text-warning');
+                    loginSuccessMessage.innerHTML = 'Email not yet verified.'
+                }
+                
+
             } else {
                 loginFailureMessage.hidden = false;
                 loginFailureMessage.innerHTML = 'email / password is incorrect';
