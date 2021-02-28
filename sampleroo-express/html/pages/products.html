@@ -27,15 +27,17 @@
         <!-- <div include-html="/components/footer.html"></div> -->
     </div>
     <script>
+        
         // this is something hard-coded in UI, later we may need to get this array of data from backend api. 
-        let productsArr = [
-            { id: 1, name: 'Beauty', imgUrl: '/images/categories/beauty.png', linkUrl: '/pages/subcategory/beauty.html' },
-            { id: 2, name: 'Baby', imgUrl: '/images/categories/baby.png', linkUrl: '/pages/subcategory/baby.html' },
-            { id: 3, name: 'Cleaning & Household', imgUrl: '/images/categories/cleaning.png', linkUrl: '/pages/subcategory/cleaning.html' },
-            { id: 4, name: 'Hygene', imgUrl: '/images/categories/hygene.png', linkUrl: '/pages/subcategory/hygene.html' },
-            { id: 5, name: 'Food & Fitness', imgUrl: '/images/categories/food.png', linkUrl: '/pages/subcategory/food.html' },
-            { id: 6, name: 'Pets', imgUrl: '/images/categories/pets.png', linkUrl: '/pages/subcategory/pets.html' }
-        ];
+        let productsArr;
+        //  = [
+        //     { id: 1, name: 'Beauty', imgUrl: '/images/categories/beauty.png', linkUrl: '/pages/subcategory/beauty.html' },
+        //     { id: 2, name: 'Baby', imgUrl: '/images/categories/baby.png', linkUrl: '/pages/subcategory/baby.html' },
+        //     { id: 3, name: 'Cleaning & Household', imgUrl: '/images/categories/cleaning.png', linkUrl: '/pages/subcategory/cleaning.html' },
+        //     { id: 4, name: 'Hygene', imgUrl: '/images/categories/hygene.png', linkUrl: '/pages/subcategory/hygene.html' },
+        //     { id: 5, name: 'Food & Fitness', imgUrl: '/images/categories/food.png', linkUrl: '/pages/subcategory/food.html' },
+        //     { id: 6, name: 'Pets', imgUrl: '/images/categories/pets.png', linkUrl: '/pages/subcategory/pets.html' }
+        // ];
 
         let selectedProduct = null;
 
@@ -44,8 +46,11 @@
             selectedProduct = item;
         }
 
-        // this is to bring included html into current page. 
-        includeHTML();
+        fetch('/products/all').then(response => response.json()).then( res => {
+            productsArr = res.map( item => { item.imgUrl = item.image; return item; });
+            // this is to bring included html into current page. 
+            includeHTML();
+        });
 
         // this is to change the url of the browser to load next page. 
         function gotoNextpage() {
