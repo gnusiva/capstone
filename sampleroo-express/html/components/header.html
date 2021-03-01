@@ -28,7 +28,7 @@
                             <div hidden id="loginFailureMessage" class="py-2 text-danger text-center" ></div>
                             
                             <button type="button" class="btn btn-dark mb-3 w-100" onclick="login()" >Login</button>
-                            <button type="button" class="btn btn-primary mb-3 w-100 background-blue-color">Continue with Google</button>
+                            <button type="button" class="btn btn-primary mb-3 w-100 background-blue-color" onclick="googleLogin()">Continue with Google</button>
                             <button type="button" class="btn btn-primary mb-5 w-100 background-blue-color">Continue with Facebook</button>
                             
                         </div>
@@ -101,6 +101,10 @@
                 loginFailureMessage.innerHTML = 'email / password is incorrect';
             }
         });
+    }
+
+    function googleLogin() {
+        window.location.href = '/auth/google';
     }
 
 </script>

@@ -34,6 +34,45 @@ app.post('/login', login);
 app.post('/forgetPassword', forgetPassword);
 app.post('/setNewPassword', setNewPassword);
 var server = https.createServer(options, app);
+
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
+var passport = require('passport');
+const GOOGLE_CLIENT_ID = '46589627879-s3h484oiip5iu6ovb8d1lrqttb1oc3n0.apps.googleusercontent.com';
+const GOOGLE_CLIENT_SECRET = 'nIQmH6kjcKkdk9mcRzoFnJiz';
+
+passport.use(new GoogleStrategy({
+    clientID: GOOGLE_CLIENT_ID,
+    clientSecret: GOOGLE_CLIENT_SECRET,
+    callbackURL: "https://localhost:3000/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    //   return cb(err, user);
+    // });
+    return cb(null, profile.id);
+  }
+));
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
+
+app.use(passport.initialize());
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile'] }));
+
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
+
 server.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
