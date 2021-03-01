@@ -1,3 +1,3 @@
-const hostName = 'http://localhost:';
+const hostName = 'https://localhost:';
 
 module.exports = hostName;
