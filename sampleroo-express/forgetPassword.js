@@ -11,9 +11,9 @@ const forgetPassword = async (req, res) => {
                 console.log(req.body.email, rows, `SELECT * FROM "Users" WHERE email = "${req.body.email}" AND isEmailVerified = "true"`);
                 sendEmail(rows.map(item => item.email)[0], 'Reset samplRoo password', `
                 <h5>Rest email </h5>
-                Please click this ${link} to reset password. 
+                Please click this <a href="${link}" >${link}</a> to reset password. 
                 `).then( () => {
-                    console.log('password reset email sent. ')
+                    console.log('password reset email sent. ');
                 });
             } 
             res.send(rows.map(item => item.email));
