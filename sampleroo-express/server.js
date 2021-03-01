@@ -12,6 +12,7 @@ const login = require('./logni');
 const forgetPassword = require('./forgetPassword');
 const https = require('https');
 const fs = require('fs');
+const setNewPassword = require('./setNewPassword');
 
 var key = fs.readFileSync('./certs/selfsigned.key');
 var cert = fs.readFileSync('./certs/selfsigned.crt');
@@ -31,6 +32,7 @@ app.get('/register/checkemail/:email', checkEmail);
 app.get('/verifyEmail/:id', verifyEmail);
 app.post('/login', login);
 app.post('/forgetPassword', forgetPassword);
+app.post('/setNewPassword', setNewPassword);
 var server = https.createServer(options, app);
 server.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
