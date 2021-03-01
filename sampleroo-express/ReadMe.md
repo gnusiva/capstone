@@ -1,4 +1,7 @@
+## run db script (optional)
+cd into dbScript folder and run all the scripts. 
 
+to run script, you need to type `node <scriptname.js>`
 ## install dependency
 `npm i`
 
