@@ -9,6 +9,7 @@ const registerUser = require('./registerUser');
 const checkEmail = require('./checkEmail');
 const verifyEmail = require('./verifyEmail');
 const login = require('./logni');
+const forgetPassword = require('./forgetPassword');
 
 app.use(express.static('html'));
 app.use(express.json());
@@ -20,6 +21,7 @@ app.post('/register/user', registerUser);
 app.get('/register/checkemail/:email', checkEmail);
 app.get('/verifyEmail/:id', verifyEmail);
 app.post('/login', login);
+app.post('/forgetPassword', forgetPassword);
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });

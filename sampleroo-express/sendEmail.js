@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const credentials = require('./emailCredentials');
 
-async function sendEmail(toAddress, message) {
+async function sendEmail(toAddress, subject, message) {
 
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -16,7 +16,7 @@ async function sendEmail(toAddress, message) {
   let info = await transporter.sendMail({
     from: credentials.username, 
     to: toAddress, 
-    subject: "SamplRoo: Confirm your email", 
+    subject: subject, //  
     text: message, 
     html: message, 
   });

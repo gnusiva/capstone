@@ -6,6 +6,7 @@ db.serialize( async () => {
     db.run(`
         CREATE TABLE IF NOT EXISTS "Users" (
             "id"	            INTEGER,
+            "uid"               TEXT,
             "isSocial"          TEXT,
             "loginProvider"     TEXT,
             "socialId"          TEXT,
